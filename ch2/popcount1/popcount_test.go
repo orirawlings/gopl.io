@@ -32,3 +32,9 @@ func BenchmarkPopCountShift(b *testing.B) {
 		PopCountShift(0x1234567890ABCDEF)
 	}
 }
+
+func BenchmarkPopCountClear(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PopCountClear(0x1234567890ABCDEF)
+	}
+}

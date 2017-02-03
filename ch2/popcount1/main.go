@@ -95,3 +95,12 @@ func PopCountShift(x uint64) int {
 		x>>62&1 +
 		x>>63&1)
 }
+
+func PopCountClear(x uint64) int {
+	n := 0
+	for x != 0 {
+		x = x & (x - 1) // clear rightmost non-zero bit
+		n++
+	}
+	return n
+}
