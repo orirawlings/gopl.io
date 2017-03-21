@@ -46,8 +46,8 @@ func mandelbrot(z complex128) color.Color {
 	for n := uint8(0); n < iterations; n++ {
 		v = v*v + z
 		if cmplx.Abs(v) > 2 {
-			blue := uint8(real(v)*128) + 127
-			red := uint8(imag(v)*128) + 127
+			blue := uint8(255 * (real(z) - xmin) / (xmax - xmin))
+			red := uint8(255 * (imag(z) - ymin) / (ymax - ymin))
 			return color.YCbCr{255 - contrast*n, blue, red}
 		}
 	}
